@@ -1,6 +1,7 @@
 package com.theprogrammingturkey.hackohio2016.util;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
@@ -13,7 +14,7 @@ import java.io.IOException;
 
 public class JSONUtil {
     private static final JsonParser PARSER = new JsonParser();
-    private static final Gson GSON = new Gson();
+    private static final Gson GSON = new GsonBuilder().create();
 
     public static JsonElement getJSonFromFile(File file) {
         try {
@@ -26,7 +27,10 @@ public class JSONUtil {
 
     public static void writeJsonToFile(File file, JsonElement json) {
         try {
-            GSON.toJson(json, new FileWriter(file));
+            FileWriter writter = new FileWriter(file);
+            GSON.toJson(json, writter);
+            writter.flush();
+            writter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

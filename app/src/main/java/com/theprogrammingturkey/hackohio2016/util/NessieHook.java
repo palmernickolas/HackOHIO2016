@@ -17,22 +17,18 @@ import java.util.List;
 
 public class NessieHook {
 
-    private NessieClient client;
+    private static NessieClient client;
 
-    private File data;
-    private JsonObject dataJson;
+    private static File data;
+    private static JsonObject dataJson;
 
-    public void init(Context context, String apiKey) {
+    public static void init(Context context) {
 
-        File docFolder = new File(context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS) + "/LED/");
-        if (!docFolder.exists()) {
-            docFolder.mkdir();
-        }
-
-        data = new File(docFolder.getAbsolutePath() + "/data.json");
+        data = new File(context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS) + "/data.json");
         if (!data.exists()) {
             try {
                 data.createNewFile();
+                JSONUtil.writeJsonToFile(data, new JsonObject());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -45,7 +41,7 @@ public class NessieHook {
         }
     }
 
-    public List<String> getStoredAPIKeys() {
+    public static List<String> getStoredAPIKeys() {
         JsonArray keys = dataJson.get("APIKeys").getAsJsonArray();
 
         List<String> toReturn = new ArrayList<>();
@@ -55,19 +51,19 @@ public class NessieHook {
         return toReturn;
     }
 
-    public void setCurrentApiKey(String key) {
+    public static void setCurrentApiKey(String key) {
         client = NessieClient.getInstance(key);
     }
 
-    public void addApiKey(String key) {
+    public static void addApiKey(String key) {
         JsonArray keys = dataJson.get("APIKeys").getAsJsonArray();
         keys.add(new JsonPrimitive(key));
         JSONUtil.writeJsonToFile(data, dataJson);
     }
 
-    public void removeApiKey(String key) {
+    public static void removeApiKey(String key) {
         JsonArray keys = dataJson.get("APIKeys").getAsJsonArray();
-        for (int i = key.length() - 1; i >= 0; i--) {
+        for (int i = keys.size() - 1; i >= 0; i--) {
             if (keys.get(i).getAsString().equals(key)) {
                 keys.remove(i);
             }

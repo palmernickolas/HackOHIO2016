@@ -4,60 +4,62 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.TextView;
 
-import java.util.Map;
+import com.theprogrammingturkey.hackohio2016.util.NessieHook;
+
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Map<Integer, Class<?>> buttonLinks;
-
-    private boolean loggedIn;
-    private FrameLayout frameLayout;
-    private LinearLayout loginLayout;
-    private LinearLayout navigationLayout;
+    private Spinner apiKeyList;
+    private TextView addAPITextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Intent intent = new Intent(this, HomeActivity.class);
-        startActivity(intent);
 
-//        frameLayout = (FrameLayout) findViewById(R.id.frame_layout);
-//        LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//        loginLayout = (LinearLayout) inflater.inflate(R.layout.activity_login, null);
-//        navigationLayout = (LinearLayout) inflater.inflate(R.layout.activity_navigation, null);
-//
-//        loggedIn = false;
-//
-//        if (!loggedIn) {
-//            frameLayout.removeAllViews();
-//            frameLayout.addView(loginLayout);
-//        } else {
-//            frameLayout.removeAllViews();
-//            frameLayout.addView(navigationLayout);
-//        }
-//
-//        buttonLinks = new HashMap<>();
-//
-//
-//        Button depositButton = (Button) navigationLayout.findViewById(R.id.deposit);
-//        depositButton.setOnClickListener(this);
-//        buttonLinks.put(depositButton.getId(), DepositActivity.class);
+        NessieHook.init(this);
+
+        apiKeyList = (Spinner) findViewById(R.id.api_keys_spinner);
+        this.updateSpinnerContents();
+    }
+
+    public void updateSpinnerContents() {
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        apiKeyList.setAdapter(spinnerAdapter);
+        for (String s : NessieHook.getStoredAPIKeys())
+            spinnerAdapter.add(s);
+        spinnerAdapter.notifyDataSetChanged();
+        addAPITextView = (TextView) findViewById(R.id.api_key_text_box);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        System.out.println("Ian resume");
     }
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(this, buttonLinks.get(view.getId()));
-        this.startActivity(intent);
+        if (view.getId() == R.id.select_button) {
+            if (apiKeyList.getAdapter().getCount() == 0) {
+                return;
+            }
+            NessieHook.setCurrentApiKey((String) apiKeyList.getSelectedItem());
+            Intent intent = new Intent(this, DepositActivity.class);
+            this.startActivity(intent);
+        } else if (view.getId() == R.id.add_button) {
+            NessieHook.addApiKey(this.addAPITextView.getText().toString());
+            this.addAPITextView.clearComposingText();
+            this.updateSpinnerContents();
+        } else if (view.getId() == R.id.remove_button) {
+            NessieHook.removeApiKey((String) apiKeyList.getSelectedItem());
+            this.updateSpinnerContents();
+        }
+
     }
 }
