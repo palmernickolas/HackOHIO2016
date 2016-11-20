@@ -46,7 +46,7 @@
                 <Button
                     android:layout_height="match_parent"
                     android:id="@+id/expand_collapse_savings"
-                    android:background="@android:drawable/arrow_up_float"
+                    android:background="@drawable/ic_collapse"
                     android:backgroundTint="@color/colorPrimaryDark"
                     android:onClick="onClick"
                     android:layout_width="30dp"/>
@@ -82,7 +82,7 @@
                 <Button
                     android:layout_height="match_parent"
                     android:id="@+id/expand_collapse_checking"
-                    android:background="@android:drawable/arrow_up_float"
+                    android:background="@drawable/ic_collapse"
                     android:backgroundTint="@color/colorPrimaryDark"
                     android:onClick="onClick"
                     android:layout_width="30dp"/>
@@ -118,7 +118,7 @@
                 <Button
                     android:layout_height="match_parent"
                     android:id="@+id/expand_collapse_credit"
-                    android:background="@android:drawable/arrow_up_float"
+                    android:background="@drawable/ic_collapse"
                     android:backgroundTint="@color/colorPrimaryDark"
                     android:onClick="onClick"
                     android:layout_width="30dp"/>

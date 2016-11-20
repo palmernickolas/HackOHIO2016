@@ -140,7 +140,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
                 savingLayout.addView(view);
             }
         }
-        savingsEC.setBackground(getResources().getDrawable(savingsCollapsed ? android.R.drawable.arrow_down_float : android.R.drawable.arrow_up_float, null));
+        savingsEC.setBackground(getResources().getDrawable(savingsCollapsed ? R.drawable.ic_collapse_00015 : R.drawable.ic_collapse, null));
     }
 
     public void updateCheckingList() {
@@ -174,7 +174,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
                 checkingLayout.addView(view);
             }
         }
-        checkingEC.setBackground(getResources().getDrawable(checkingCollapsed ? android.R.drawable.arrow_down_float : android.R.drawable.arrow_up_float, null));
+        checkingEC.setBackground(getResources().getDrawable(checkingCollapsed ? R.drawable.ic_collapse_00015 : R.drawable.ic_collapse, null));
     }
 
     public void updateCreditList() {
@@ -209,7 +209,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
                 creditLayout.addView(view);
             }
         }
-        creditEC.setBackground(getResources().getDrawable(creditCollapsed ? android.R.drawable.arrow_down_float : android.R.drawable.arrow_up_float, null));
+        creditEC.setBackground(getResources().getDrawable(creditCollapsed ? R.drawable.ic_collapse_00015 : R.drawable.ic_collapse, null));
     }
 
     static class AccountDisplayHolder {
