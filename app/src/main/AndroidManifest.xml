@@ -20,7 +20,11 @@
             android:label="@string/title_activity_withdraw"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Account" />
-        <activity android:name=".Purchase"></activity>
+        <activity android:name=".Purchase" />
+        <activity android:name=".Branches"></activity>
+          <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="AIzaSyDmoDazk9S9aw1WyOBbtA8L2-ETXRrUVOk "/>
     </application>
 
 </manifest>
