@@ -32,7 +32,7 @@
         <activity android:name=".AccountActivity"/>
         <activity android:name=".DepositActivity"/>
         <activity android:name=".HomeActivity"/>
-        <activity android:name=".BankBranches"/>
+
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"/>

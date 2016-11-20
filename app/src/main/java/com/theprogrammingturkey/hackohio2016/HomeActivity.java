@@ -30,11 +30,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         Button mapButton = (Button) findViewById(R.id.button_map);
         mapButton.setOnClickListener(this);
-        buttonLinks.put(mapButton.getId(), BankBranches.class);
-
-        Button mapInAppButton = (Button) findViewById(R.id.button_mapInApp);
-        mapInAppButton.setOnClickListener(this);
-        buttonLinks.put(mapInAppButton.getId(), MapsActivity.class);
+        buttonLinks.put(mapButton.getId(), MapsActivity.class);
 
     }
 

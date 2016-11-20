@@ -11,23 +11,15 @@
     tools:context="com.theprogrammingturkey.hackohio2016.BankBranches">
 
     <Button
-        android:text="Show Nearby ATMs"
+        android:text="Show Nearby ATMs/Branches"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/button_nearby_atms"
+        android:id="@+id/button_nearby_atms_branches"
         android:onClick="showNearbyAtms"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="45dp" />
 
-    <Button
-        android:text="Show Nearby Branches"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button_nearby_branches"
-        android:onClick="showNearbyBranches"
-        android:layout_marginTop="39dp"
-        android:layout_below="@+id/button_nearby_atms"
-        android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>
