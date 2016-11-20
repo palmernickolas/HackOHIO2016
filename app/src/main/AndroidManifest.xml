@@ -24,6 +24,10 @@
         <activity android:name=".AccountActivity" />
         <activity android:name=".DepositActivity" />
         <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".BankBranches"></activity>
+          <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="AIzaSyDmoDazk9S9aw1WyOBbtA8L2-ETXRrUVOk "/>
     </application>
 
 </manifest>
