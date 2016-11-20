@@ -41,6 +41,10 @@ public class NessieHook {
         }
     }
 
+    public static NessieClient getNessie() {
+        return client;
+    }
+
     public static List<String> getStoredAPIKeys() {
         JsonArray keys = dataJson.get("APIKeys").getAsJsonArray();
 
