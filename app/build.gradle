@@ -30,4 +30,6 @@ dependencies {
 
     compile group: 'com.google.code.gson', name: 'gson', version: '2.4'
     compile 'com.reimaginebanking.api:nessie-android-sdk:1.0.4'
+    compile 'com.google.android.gms:play-services:9.8.0'
+
 }

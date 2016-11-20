@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import com.theprogrammingturkey.hackohio2016.util.NessieHook;
 
-
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Spinner apiKeyList;
