@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HackOhio2016</string>
+    <string name="app_name">HackOHIO2016</string>
     <string-array name="deposit_arrays">
         <item>Get All Deposits</item>
         <item>Get Deposit by ID</item>

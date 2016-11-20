@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
         //setContentView(R.layout.activity_deposit);
         //TextView textView = (TextView) findViewById(R.id.text_view);
         //textView.setText("ye");
-        Intent intent = new Intent(this, DepositActivity2.class);
+        Intent intent = new Intent(this, DepositActivity.class);
         startActivity(intent);
     }
 
