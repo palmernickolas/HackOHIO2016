@@ -1,10 +1,14 @@
 package com.theprogrammingturkey.hackohio2016;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.reimaginebanking.api.nessieandroidsdk.NessieError;
 import com.reimaginebanking.api.nessieandroidsdk.NessieResultsListener;
@@ -102,28 +106,45 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
             creditCollapsed = !creditCollapsed;
             updateCreditList();
         }
-
     }
 
     public void updateSavingsList() {
         if (savingsAccounts.size() == 0) {
             savingsCollapsed = true;
         }
+
+        LayoutInflater mInflater = (LayoutInflater) this.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         if (savingsCollapsed) {
             savingLayout.setVisibility(View.GONE);
             savingLayout.removeAllViewsInLayout();
         } else {
             savingLayout.setVisibility(View.VISIBLE);
             for (Account a : this.savingsAccounts) {
-                Button b = new Button(this);
-                b.setText(a.getNickname());
-                savingLayout.addView(b);
+                View view = mInflater.inflate(R.layout.account_list_display, null);
+                AccountDisplayHolder holder = new AccountDisplayHolder();
+                holder.name = (TextView) view.findViewById(R.id.account_name_text_view);
+                holder.balance = (TextView) view.findViewById(R.id.account_balance);
+                holder.rewards = (TextView) view.findViewById(R.id.account_rewards);
+                holder.name.setText(a.getNickname());
+                holder.balance.setText("$" + a.getBalance());
+                holder.rewards.setText(a.getRewards() + " pts");
+                final String idCopy = a.getId();
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(AccountActivity.super.getApplicationContext(), AccountDetailsAcvtivity.class);
+                        intent.putExtra("ACCOUNT_ID", idCopy);
+                        startActivity(intent);
+                    }
+                });
+                savingLayout.addView(view);
             }
         }
-        savingsEC.setBackground(getResources().getDrawable(savingsCollapsed ? android.R.drawable.arrow_down_float : android.R.drawable.arrow_up_float, null));
+        savingsEC.setBackground(getResources().getDrawable(savingsCollapsed ? R.drawable.ic_collapse_00015 : R.drawable.ic_collapse, null));
     }
 
     public void updateCheckingList() {
+        LayoutInflater mInflater = (LayoutInflater) this.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         if (checkingAccounts.size() == 0) {
             checkingCollapsed = true;
         }
@@ -133,29 +154,67 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         } else {
             checkingLayout.setVisibility(View.VISIBLE);
             for (Account a : this.checkingAccounts) {
-                Button b = new Button(this);
-                b.setText(a.getNickname());
-                checkingLayout.addView(b);
+                View view = mInflater.inflate(R.layout.account_list_display, null);
+                AccountDisplayHolder holder = new AccountDisplayHolder();
+                holder.name = (TextView) view.findViewById(R.id.account_name_text_view);
+                holder.balance = (TextView) view.findViewById(R.id.account_balance);
+                holder.rewards = (TextView) view.findViewById(R.id.account_rewards);
+                holder.name.setText(a.getNickname());
+                holder.balance.setText("$" + a.getBalance());
+                holder.rewards.setText(a.getRewards() + " pts");
+                final String idCopy = a.getId();
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(AccountActivity.super.getApplicationContext(), AccountDetailsAcvtivity.class);
+                        intent.putExtra("ACCOUNT_ID", idCopy);
+                        startActivity(intent);
+                    }
+                });
+                checkingLayout.addView(view);
             }
         }
-        checkingEC.setBackground(getResources().getDrawable(checkingCollapsed ? android.R.drawable.arrow_down_float : android.R.drawable.arrow_up_float, null));
+        checkingEC.setBackground(getResources().getDrawable(checkingCollapsed ? R.drawable.ic_collapse_00015 : R.drawable.ic_collapse, null));
     }
 
     public void updateCreditList() {
         if (creditAccounts.size() == 0) {
             creditCollapsed = true;
         }
+
+        LayoutInflater mInflater = (LayoutInflater) this.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         if (creditCollapsed) {
             creditLayout.setVisibility(View.GONE);
             creditLayout.removeAllViewsInLayout();
         } else {
             creditLayout.setVisibility(View.VISIBLE);
             for (Account a : this.creditAccounts) {
-                Button b = new Button(this);
-                b.setText(a.getNickname());
-                creditLayout.addView(b);
+                View view = mInflater.inflate(R.layout.account_list_display, null);
+                AccountDisplayHolder holder = new AccountDisplayHolder();
+                holder.name = (TextView) view.findViewById(R.id.account_name_text_view);
+                holder.balance = (TextView) view.findViewById(R.id.account_balance);
+                holder.rewards = (TextView) view.findViewById(R.id.account_rewards);
+                holder.name.setText(a.getNickname());
+                holder.balance.setText("$" + a.getBalance());
+                holder.rewards.setText(a.getRewards() + " pts");
+                final String idCopy = a.getId();
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(AccountActivity.super.getApplicationContext(), AccountDetailsAcvtivity.class);
+                        intent.putExtra("ACCOUNT_ID", idCopy);
+                        startActivity(intent);
+                    }
+                });
+                creditLayout.addView(view);
             }
         }
-        creditEC.setBackground(getResources().getDrawable(creditCollapsed ? android.R.drawable.arrow_down_float : android.R.drawable.arrow_up_float, null));
+        creditEC.setBackground(getResources().getDrawable(creditCollapsed ? R.drawable.ic_collapse_00015 : R.drawable.ic_collapse, null));
+    }
+
+    static class AccountDisplayHolder {
+        TextView name;
+        TextView balance;
+        TextView rewards;
     }
 }
