@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">HackOhio2016</string>
+    <string name="title">Capital One - NESSI Api</string>
+    <string name="description">The following app was created during The Ohio State University\'s OHI/O Hackathon (2016).
+        The features are meant to demonstrate the capabilities and uses of the Nessi API provided by Capital One.
+    </string>
+    <string name="button_account">Account</string>
+    <string name="button_desposit">Desposit</string>
 </resources>
