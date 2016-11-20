@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/account_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="TEST"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:layout_marginTop="@dimen/button_margin_top"
+        android:textSize="36sp"/>
+
+    <TextView
+        android:id="@+id/account_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Credit"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:layout_marginBottom="@dimen/button_margin_top"
+        android:textSize="22sp"/>
+
+    <TextView
+        android:id="@+id/account_balance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="$122345"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:layout_marginTop="@dimen/button_margin_top"
+        android:textSize="45sp"/>
+
+    <TextView
+        android:id="@+id/account_rewards"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="124 pts"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:layout_marginBottom="@dimen/button_margin_top"
+        android:layout_marginTop="@dimen/button_margin_top"
+        android:textSize="22sp"/>
+</LinearLayout>
