@@ -20,7 +20,7 @@
             android:label="@string/title_activity_withdraw"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Account" />
-        <activity android:name=".Purchase"></activity>
+        <activity android:name=".DepositActivity" />
     </application>
 
 </manifest>
