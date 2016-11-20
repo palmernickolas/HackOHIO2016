@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 import java.util.HashMap;
 import java.util.Map;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Map<Integer, Class<?>> buttonLinks;
 
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             frameLayout.addView(navigationLayout);
         }
 
-        buttonLinks = new HashMap<Integer, Class<?>>();
+        buttonLinks = new HashMap<>();
 
 
         Button depositButton = (Button) navigationLayout.findViewById(R.id.deposit);
