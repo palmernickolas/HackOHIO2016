@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return;
             }
             NessieHook.setCurrentApiKey((String) apiKeyList.getSelectedItem());
-            Intent intent = new Intent(this, DepositActivity.class);
+            Intent intent = new Intent(this, HomeActivity.class);
             this.startActivity(intent);
         } else if (view.getId() == R.id.add_button) {
             NessieHook.addApiKey(this.addAPITextView.getText().toString());
