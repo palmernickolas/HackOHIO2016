@@ -21,7 +21,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_account);
+        setContentView(R.layout.activity_main);
+
+        Intent intent = new Intent(this, HomeActivity.class);
+        startActivity(intent);
 
 //        frameLayout = (FrameLayout) findViewById(R.id.frame_layout);
 //        LayoutInflater inflater = (LayoutInflater) getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);

@@ -15,4 +15,5 @@
     </string-array>
     <string name="title_activity_withdraw">Withdraw</string>
     <string name="password_header">Please Enter Your Password To Continue</string>
+    <string name="home_page_header">Home Page</string>
 </resources>
