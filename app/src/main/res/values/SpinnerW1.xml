@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <string-array name="accountsW_array">
+            <item>Acount 0140250</item>
+            <item>Acount 0174345</item>
+            <item>Acount 3644250</item>
+            <item>Acount 3263453</item>
+        </string-array>
+</resources>
