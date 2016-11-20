@@ -10,6 +10,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import com.reimaginebanking.api.nessieandroidsdk.NessieError;
+import com.reimaginebanking.api.nessieandroidsdk.NessieResultsListener;
+import com.reimaginebanking.api.nessieandroidsdk.models.Deposit;
+import com.theprogrammingturkey.hackohio2016.util.NessieHook;
+
 
 public class DepositActivity extends AppCompatActivity implements OnItemSelectedListener {
 
@@ -38,8 +43,66 @@ public class DepositActivity extends AppCompatActivity implements OnItemSelected
         String test = (String) spinner.getSelectedItem();
 
 
-
     }
+
+
+    public void getDeposit(String depositId){
+        NessieHook.getNessie().DEPOSIT.getDeposit(depositId, new NessieResultsListener() {
+            @Override
+            public void onSuccess(Object result) {
+
+            }
+
+            @Override
+            public void onFailure(NessieError error) {
+
+            }
+        });
+    }
+
+    public void createDeposit(String accountId, Deposit deposit){
+        NessieHook.getNessie().DEPOSIT.createDeposit(accountId, deposit, new NessieResultsListener() {
+
+            @Override
+            public void onSuccess(Object result) {
+
+            }
+
+            @Override
+            public void onFailure(NessieError error) {
+
+            }
+        });
+    }
+
+    public void updateDeposit(String depositId, Deposit deposit){
+        NessieHook.getNessie().DEPOSIT.updateDeposit(depositId, deposit, new NessieResultsListener() {
+            @Override
+            public void onSuccess(Object result) {
+
+            }
+
+            @Override
+            public void onFailure(NessieError error) {
+
+            }
+        });
+    }
+
+    public void deleteDeposit(String depositId) {
+        NessieHook.getNessie().DEPOSIT.deleteDeposit(depositId, new NessieResultsListener() {
+            @Override
+            public void onSuccess(Object result) {
+
+            }
+
+            @Override
+            public void onFailure(NessieError error) {
+
+            }
+        });
+    }
+
 
     @Override
     public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
