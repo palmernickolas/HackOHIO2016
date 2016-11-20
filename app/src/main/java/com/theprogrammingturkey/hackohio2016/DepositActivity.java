@@ -20,7 +20,7 @@ public class DepositActivity extends AppCompatActivity implements OnItemSelected
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_deposit2);
+        setContentView(R.layout.activity_deposit);
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
 

@@ -3,7 +3,7 @@ package com.theprogrammingturkey.hackohio2016;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Account extends AppCompatActivity {
+public class AccountActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
