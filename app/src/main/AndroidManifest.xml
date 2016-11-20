@@ -19,7 +19,8 @@
             android:name=".Withdraw"
             android:label="@string/title_activity_withdraw"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Account"></activity>
+        <activity android:name=".Account" />
+        <activity android:name=".Purchase"></activity>
     </application>
 
 </manifest>
