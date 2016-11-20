@@ -31,13 +31,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/button_margin_top"
-        android:text="Make A Deposit" />
+        android:text="Make a Deposit" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/button_map"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/button_margin_top"
-        android:text="Button" />
+        android:text="Search for ATMs and Branches" />
 
 </LinearLayout>

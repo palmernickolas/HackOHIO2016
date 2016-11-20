@@ -27,6 +27,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         Button depositButton = (Button) findViewById(R.id.button_deposit);
         depositButton.setOnClickListener(this);
         buttonLinks.put(depositButton.getId(), DepositActivity.class);
+
+        Button mapButton = (Button) findViewById(R.id.button_map);
+        mapButton.setOnClickListener(this);
+        buttonLinks.put(mapButton.getId(), BankBranches.class);
     }
 
 
