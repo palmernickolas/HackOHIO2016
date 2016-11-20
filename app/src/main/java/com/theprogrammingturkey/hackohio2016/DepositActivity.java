@@ -8,16 +8,19 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 
 public class DepositActivity extends AppCompatActivity implements OnItemSelectedListener {
 
+    private Toolbar toolbar;
+    private Spinner spinner;
     private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_layout);
+        setContentView(R.layout.activity_deposit2);
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
 
@@ -28,11 +31,12 @@ public class DepositActivity extends AppCompatActivity implements OnItemSelected
 
         spinner.setAdapter(adapter);
 
-        spinner.setOnItemSelectedListener(new DepositActivity());
+        spinner.setOnItemSelectedListener(this);
 
-        System.out.println("Ian yes");
-        textView = (TextView) findViewById(R.id.text_view);
-        System.out.println("Ian yes2");
+        getSupportActionBar().setTitle("Hack OHI/O 2016");
+
+        String test = (String) spinner.getSelectedItem();
+
 
 
     }
@@ -40,11 +44,9 @@ public class DepositActivity extends AppCompatActivity implements OnItemSelected
     @Override
     public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
 
+        String textSelected = (String) parentView.getSelectedItem();
 
-        if (textView != null){
-            textView.setText("YO");
 
-        }
 
     }
 

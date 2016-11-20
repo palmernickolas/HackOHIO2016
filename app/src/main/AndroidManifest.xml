@@ -16,7 +16,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".DepositActivity"></activity>
-        <activity android:name=".DepositActivity2"></activity>
     </application>
 
 </manifest>
